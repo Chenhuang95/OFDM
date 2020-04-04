@@ -1,0 +1,953 @@
+%% LyX 2.3.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,preprint]{elsarticle}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+%%
+%% Copyright 2007-2019 Elsevier Ltd
+%%
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%%
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%%
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%%
+%%
+%% $Id: elsarticle-template-num.tex 168 2019-02-25 07:15:41Z apu.v $
+%%
+%%
+
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\journal{Signal Processing}
+
+\makeatother
+
+\begin{document}
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{Three-Frequency Ranging and Positioning based on 5G OFDM Systems\tnoteref{t1,t2}}
+
+\tnotetext[t1]{The work has been supported by the Joint Funds of the Ministry of
+Education of China (No.6141A02022383).}
+
+\tnotetext[t2]{The work has been supported by the Fundamental Research Funds for
+the Central Universities of Ministry of Education of China (No.20101195611).}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \address[label1]{}
+%% \address[label2]{}
+
+\author[1]{Wengang~Li\corref{cor1}\fnref{fn1}}
+
+\ead{wgli@xidian.edu.cn}
+
+\author[2]{Chen~Huang\fnref{fn2}}
+
+\ead{huangchen@stu.xidian.edu.cn}
+
+\author[3]{Liujiang Wang}
+
+\ead{wanglj@stu.xidian.edu.cn}
+
+\cortext[cor1]{Corresponding author}
+
+\fntext[fn1]{Wengang Li is currently an associate professor with the School of
+Communication Engineering, Xidian University.}
+
+\fntext[fn2]{Chen Huang is currently pursuing the M.Sc. Degree with the School
+of Communication Engineering, Xidian University.}
+
+\address[1]{Xidian University, Xi’an, Shaanxi province, China}
+
+\address[2]{Xidian University, Xi’an, Shaanxi province, China}
+
+\address[3]{Xidian University, Xi’an, Shaanxi province, China}
+
+%% Text of abstract
+
+\begin{abstract}
+Indoor positioning has great research value due to the problems of
+indoor multipath environment and lack of GNSS signals. This paper
+proposes a multi-frequency ranging and positioning system based on
+OFDM communication system. With almost no impact on communication
+capacity, three subcarriers of OFDM are used for ranging. The CRLB
+of this ranging positioning system is proved. Ranging positioning
+accuracy meets the requirements of indoor location applications. The
+experimental simulation compares the performance with other indoor
+positioning methods and proves the superiority of this system. This
+paper selects specific subcarriers in the OFDM communication system
+to be used for transmitting ranging frames and delay observations
+without affecting other subcarriers used for communication. The theory
+proves and simulates the relationship between ranging accuracy and
+accuracy and channel parameters in a multipath environment. 
+\end{abstract}
+%%Graphical abstract
+\begin{graphicalabstract} %\includegraphics{grabs}
+\end{graphicalabstract}
+
+%%Research highlights
+\begin{highlights}
+
+\item 
+
+This paper proposes a multi-frequency ranging and positioning system
+based on OFDM communication system. With almost no impact on communication
+capacity, three subcarriers of OFDM are used for ranging. Based on
+OFDM position system, triple-frequency combining observation models
+is proposed.
+
+\item 
+
+The CRLB of this ranging positioning system is proved. How to select
+subcarrier frequency is proposed.\end{highlights}
+
+%% keywords here, in the form: keyword \sep keyword
+\begin{keyword}
+OFDM\sep multi-frequency ranging\sep indoor location\sep CRLB %% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\end{keyword}
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+
+\section{Introduction}
+
+With the development of society, location-based service (LBS) has
+become more and more important. For example, robot positioning, vehicle
+automatic driving, indoor rescue$^{\cite{Wang2012Handset}}$ , etc.
+all require precise position information. Accurate position information
+is the basis for developing LBS. At present, the increasingly mature
+global navigation satellite system (GNSS) achieves sub-meter outdoor
+positioning accuracy$^{\cite{Qin2019}}$, and the development of RTK
+technology improves the positioning accuracy to the centimeter level
+with the help of ground-assisted stations$^{\cite{Brack2017Reliable}}$
+. However, since satellite signals cannot penetrate buildings, indoor
+positioning cannot be achieved with GNSS. Humans spend more than 70\%
+of their time indoors, so the need for LBS for indoor activities is
+more urgent. When GNSS cannot provide indoor positioning services,
+how to obtain accurate indoor location information has become a research
+hotspot. Industry and academia are seeking high-precision, high-reliability
+indoor positioning technology, with a view to obtaining accurate location
+information in electromagnetic environments and indoor environments
+with complex geographical environments.
+
+The indoor environment space is small, and the cellular network-based
+partition positioning method$^{\cite{Xu2012Keeping}}$ cannot provide
+sufficient positioning accuracy. The indoor RFID positioning method$^{\cite{Shangguan2016STPP}}$$^{\cite{Fu2017One}}$
+has high accuracy, but the positioning distance is short, and special
+equipment is needed. UWB, as a commonly used positioning technology,\citep{Liu2017Improved}
+compared different positioning algorithms based on UWB ranging. \citep{Hu2018Relative}
+used pseudo-random codes for indoor positioning in OFDM systems. \citep{GuiA}
+Based on the fact that channel state information (CSI) can be used
+for distance measurement, CSI-based CRLB is proposed in it, and the
+theoretical research on positioning performance in a multipath environment
+is carried out. The method of fingerprint characteristics in indoor
+positioning technology is also a research hotspot. It uses machine
+learning to locate the channel state information (CSI)$^{\cite{Song2018CSI}}$,
+Received Signal Strength Indicator(RSSI)$^{\cite{Zhang2015Wireless}}$$^{\cite{LiUHF}}$
+and other characteristics. However, this method requires data collection
+and network training in advance, which has greater limitations.
+
+Wireless positioning technologies are mainly divided into two categories:
+ranging-based technologies that measure propagation delay and non-ranging
+technologies that use matching fingerprints, among which ranging-based
+technologies are the first choice for lower cost. Because of its good
+anti-multipath performance, OFDM technology can be used to improve
+the accuracy of indoor ranging and positioning. In\citep{WangOFDM}\citep{Wang2011Bounds}
+, the Cramero Lower Bound (CRLB) based on OFDM was studied, and the
+single-path channel was studied in \citep{WangOFDM}, and the performance
+of OFDM was limited. In \citep{Wang2011Bounds} , the ranging of the
+multipath channel is obtained in the frequency domain. Literature
+\citep{Wang70} proved that with the same positioning accuracy, non-data-bearing
+orthogonal frequency division multiplexing (NDB OFDM) in wireless
+positioning is more energy-efficient than non-pulse-shaping pseudo-random
+noise (NPS PN) currently widely used in satellites and the ground.
+Articles \citep{DaiDistributed,LiRobust,Shahmansoori2017} improve
+positioning accuracy by optimizing network and carrier power allocation.But
+the signal power to locate the channel has higher requirements.Many
+positioning algorithms are based on ranging information, such as the
+least squares algorithm$^{\cite{NguyenLeast}}$ and the chan algorithm$^{\cite{MuUWB}}$.
+Wang$^{\cite{Donglin2019Quasi}}$ proves the bound of position estimation
+in 3-D localization is closely associated with the bound of range
+estimation.That means the accuracy of distance measurement guarantees
+the accuracy of positioning.
+
+The communication and positioning integrated OFDM system proposed
+in this paper can achieve good positioning accuracy while minimally
+affecting the communication capacity, and can meet the needs of indoor
+positioning applications. The three-frequency positioning method is
+used to improve positioning accuracy and stability.
+
+The contributions of this paper can be summarized as follows. 
+\begin{enumerate}
+\item Select three subcarriers in an OFDM communication system, and introduce
+the selection method and the format of the ranging frame carried by
+the subcarriers. 
+\item we focus on orthogonal frequency- division multiplexing (OFDM) systems
+and derive the bounds for OFDM ranging accuracy in multipath channels
+based on Fisher information analysis. Prove the EFI of multi-frequency
+ranging and how it is affected by the channel parameters. 
+\item Simulation experiments in this paper prove the results of theoretical
+derivation. And compared with other indoor positioning methods ranging
+positioning performance. It is verified how the ranging and positioning
+accuracy changes with the change of channel parameters. 
+\end{enumerate}
+
+\section{OFDM position system}
+
+OFDM technology is widely used in 4g, 5g and other high-speed communication
+systems. The wireless local area network IEEE 802.11a standard, the
+wireless metropolitan area network IEEE 802.16 standard, etc. all
+adopt OFDM as the core technology. OFDM is a frequency division multiplexing
+technique based on multi-carrier modulation. Multiple subcarriers
+overlap each other orthogonally in frequency to form multiple subchannels,
+as shown in FIG. 1. Through serial-to-parallel conversion, the input
+high-rate data information stream is converted into multiple low-rate
+data information streams that are transmitted in parallel, while the
+broadband is converted into multiple identical narrowbands, and the
+parallel data streams are transmitted on narrowband subchannels. Under
+normal communication conditions, the signal bandwidth of an OFDM system
+is less than the relevant bandwidth of the channel. Therefore, the
+fading of each subchannel is consistent with flat fading, so it has
+good resistance to multipath.
+
+\subsection{OFDM modulation and demodulation}
+
+\begin{figure}[htbp]
+\begin{centering}
+\includegraphics[width=3.5in]{\string"modulation process\string".eps} 
+\par\end{centering}
+\caption{OFDM modulation process}
+\end{figure}
+
+OFDM modulation method As shown in Figure 1, Serial to Parallel Conventor
+converts a high-speed data stream into N sets of parallel data blocks
+$D_{0}$ \textasciitilde{} $D_{N-1}$ , and modifies each data block
+with a subcarrier $f_{0}$ \textasciitilde$f_{N-1}$ . The modulated
+subcarrier signals of the N parallel branches are added to obtain
+the actual transmitted signal of the OFDM.
+
+\begin{figure}[htbp]
+\begin{centering}
+\includegraphics[width=3.5in]{\string"demodulation process\string".eps} 
+\par\end{centering}
+\caption{Receiver OFDM demodulation process}
+\end{figure}
+
+As shown in FIG. 2, at the receiving end, the received signal enters
+N parallel branches at the same time, and can be restored by multiplying
+and integrating (coherent demodulation) with N subcarriers, respectively.
+Parallel data is merged into serial data through Parallel-to-Serial
+Conventor.
+
+\subsection{multi-subcarrier ranging positioning}
+
+\begin{figure}[htbp]
+\begin{centering}
+\includegraphics[width=3.5in]{E:/ofdm/subCarriers} 
+\par\end{centering}
+\caption{OFDM power spectrum diagram}
+\end{figure}
+
+The OFDM ranging method proposed in this paper uses three subcarriers
+$f_{0}$, $f_{M}$, $f_{N-1}$which are specifically used for ranging,
+and the remaining subcarriers are used to transmit data just like
+the communication system. As shown in Figure 3, suppose there are
+N subcarriers in an OFDM system, and $f_{0}$ is the subcarrier with
+the smallest baseband frequency, where $f_{M}=f_{0}+N\Delta f/2$,
+$f_{N-1}=f_{0}+(N-1)\Delta f$.
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{\string"picture/position frame\string".eps}} 
+\par\end{centering}
+\caption{Ranging Data Frame}
+\end{figure}
+
+Data such as the coordinates of the base station are transmitted on
+the ranging subcarriers. The data frame format is shown in Figure
+4.
+
+The ranging frame structure is shown in Figure 4. The first two bytes
+of the frame. Check sum One byte, used to check the data. The base
+station's latitude, longitude and altitude are 8 bytes each, for a
+total of 24 bytes. The device id is one byte, which indicates the
+signal transmitted by which base station. The subcarrier id is one
+byte and is used to indicate which subcarrier signal. The ranging
+signal delay is used to measure the distance between the receiver
+and the base station. The three subcarriers used for ranging can not
+only improve the ranging accuracy but also ensure the accuracy of
+the coordinate data of the ranging base station. Occupying three subcarriers
+at the same time will not cause much impact on the communication capacity
+of the original communication system.
+
+\section{Triple-frequency combining observation models}
+
+\subsection{signal and channel model}
+
+The transmission ranging signal of the OFDM system is expressed as
+
+\begin{equation}
+\begin{aligned}s_{0}(t) & =s(t)g_{0}(t)\\
+ & =\sum_{k=0}^{N-1}A_{k}\cos\left(2\pi\left(f_{\mathrm{c}}+f_{k}\right)t+\phi_{k}\right)g_{0}(t)
+\end{aligned}
+\end{equation}
+Where N is the number of subcarriers, ${f_{\text{c}}}$ is the central
+frequency, ${f_{k}}$ is the baseband frequency of the th subcarrier
+and can be expressed as ${f_{k}}=(2k-N+1)\Delta f/2$, ${{\text{A}}_{k}}$
+and ${\phi_{k}}$ are the amplitude and phase of the designed symbol
+for ranging modulated on the kth subcarrier. The unit rectangular
+pulse ${g_{0}}(t)$ is non-zero for $t\in\left[{-{T_{{\text{CP}}}},T}\right]$
+where $T=1/\Delta f$ and ${T_{{\text{CP}}}}$ is the length of the
+cyclic prefix. $\Delta f$ is the subcarrier spacing of ranging signal.
+
+Due to the reflection of signals from indoor walls, there are multipath
+signals in the environment, so the signal received by the receiver
+can be expressed as: 
+\begin{equation}
+x(t)\triangleq\left[{h(t)*{s_{0}}(t)}\right]g(t)
+\end{equation}
+$h(t)$ is the impulse response of the multipath channel and can be
+written as 
+\begin{equation}
+h(t)=\sum\limits _{l=0}^{L-1}{a_{l}}\delta\left({t-{\tau_{l}}}\right)
+\end{equation}
+Where $n(t)$ is the additive white Gaussian noise with two-sided
+spectrum density of ${{\text{N}}_{\text{0}}}/2$, L is the number
+of arrival paths, ${a_{l}}$ and ${\tau_{l}}$ are the amplitude and
+propagation delay of the pth path, ${\tau_{0}}$ is the number of
+arrival paths, and can be expressed as ${\tau_{0}}=R/c$, where $R$
+is the distance between the transmitter and the base station, $c$
+is the speed of light. Therefore, the estimation of the distance can
+be converted into the estimation of the delay. The unknown parameters
+to be estimated can be organized as${\bf {\theta}}={\left[{{{\bf {\tau}}^{T}},{{\bf {\alpha}}^{T}}}\right]^{T}}$,
+where ${\mathbf{\tau}}={\left[{{\tau_{0}},{\tau_{1}},\ldots,{\tau_{L-1}}}\right]^{T}}$
+and $\alpha{\rm {=}}{\left[{{\alpha_{0}},{\alpha_{1}},\ldots,{\alpha_{L-1}}}\right]^{T}}$.The
+received signal without the cyclic prefix is expressed as
+
+\begin{equation}
+r(t)=x(t)+n(t){\text{ }}g(t)
+\end{equation}
+Where $g(t)$ is a unit rectangular pulse which is non-zero in {[}0,T{]}.The
+Fourier Transform of $r(t)$ can be expressed as ${\text{R(f) = X(f) + N(f)}}$.
+Where ${\text{X(f)}}$ is the Fourier Transform of ${\text{x(t)}}$
+given by
+
+\begin{equation}
+\begin{aligned}X(f)= & \sum_{k=0}^{N-1}\frac{A_{k}}{2}\left[H\left(f_{\mathrm{c}}+f_{k}\right)G\left(f-f_{\mathrm{c}}-f_{k}\right)e^{j\phi_{k}}\right.\\
+ & \left.+H\left(-f_{\mathrm{c}}-f_{k}\right)G\left(f+f_{\mathrm{c}}+f_{k}\right)e^{-j\phi_{k}}\right]
+\end{aligned}
+\end{equation}
+The Fourier Transform of $r(t)$ isexpressed as
+
+\begin{equation}
+R(f)=X(f)+N(f)
+\end{equation}
+and G(f), H(f),and N(f) are the Fourier Transforms of g(t), h(t),and
+n(t),respectively.
+
+\subsection{combining observation models}
+
+The frequencies of the ranging subcarriers are determined in advance
+to be${f_{{\rm {0}}}}$, ${f_{1}}$, and ${f_{2}}$. Reach the receiver
+after propagating through the wireless channel. The observation of
+the ranging subcarrier phase measured by the receiver can be expressed
+as:
+
+\begin{equation}
+{\varphi_{i}}=\frac{1}{{\lambda_{i}}}\rho-{N_{i}}+{\varepsilon_{i}}
+\end{equation}
+In Eq. (1), $i={\rm {1}},{\rm {2}},{\rm {3}}$ represents different
+carrier frequencies,${\varphi_{i}}$ represents the carrier phase
+observation value, $\rho$ represents the true value of the geometric
+distance from the base station transmitter to the receiver, and ${{\cal E}_{i}}$
+is the carrier phase noise of the corresponding frequency. ${N_{i}}$
+is the ambiguity of the observed value. The observation values of
+the OFDM subcarrier phases of different frequencies represented by
+Eq. (1) are linearly combined, and the observation values of the combined
+subcarrier phases are expressed as:
+
+\begin{equation}
+\begin{aligned}\varphi_{ijk}=i\varphi_{1}+j\varphi_{2}+k\varphi_{3} & =\left(\frac{i}{\lambda_{1}}+\frac{j}{\lambda_{2}}+\frac{k}{\lambda_{3}}\right)\rho\\
+ & -\left(iN_{1}+jN_{2}+kN_{3}\right)\\
+ & +\left(i\varepsilon_{1}+j\varepsilon_{2}+k\varepsilon_{3}\right)
+\end{aligned}
+\end{equation}
+In Eq. (2), ${\varphi_{ijk}}$ is the carrier phase combined observation
+value, and $(i,j,k)$ is the combined observation value coefficient.
+In order to ensure the whole cycle characteristic of the combined
+ambiguity of the combined observation value,which can be writtened
+as ${N_{ijk}}=i{N_{1}}+j{N_{2}}+k{N_{3}}$. $i,j,k$ are non-zero
+integers, and 
+\begin{equation}
+\frac{1}{{\lambda_{ijk}}}=\frac{i}{{\lambda_{1}}}+\frac{j}{{\lambda_{2}}}+\frac{k}{{\lambda_{3}}}
+\end{equation}
+the wavelength F of the combined phase combination observations is
+solved as: 
+\begin{equation}
+{\lambda_{ijk}}=\frac{{{\lambda_{1}}{\lambda_{2}}{\lambda_{3}}}}{{i{\lambda_{2}}{\lambda_{3}}+j{\lambda_{1}}{\lambda_{3}}+k{\lambda_{1}}{\lambda_{2}}}}
+\end{equation}
+then Eq. (2) can be simplified as:
+
+\begin{equation}
+{\varphi_{ijk}}=\frac{1}{{\lambda_{ijk}}}\rho-{N_{ijk}}+{\varepsilon_{ijk}}
+\end{equation}
+where ${N_{ijk}}$ is the ambiguity of the combined observations and
+${\varepsilon_{ijk}}=i{\varepsilon_{1}}+j{\varepsilon_{2}}+k{\varepsilon_{3}}$
+is the noise of the combined observations.
+
+Due to the linear combination, the noise amplification factor of the
+combined observation value will be greater than the noise amplification
+factor corresponding to the original carrier observation value. The
+formula of the noise amplification factor in units of length is rewritten
+into the frequency form:
+
+\begin{equation}
+{\bar{n}_{ijk}}=\frac{{\sqrt{{i^{2}}+{j^{2}}+{k^{2}}}}}{{i{f_{1}}+j{f_{2}}+k{f_{3}}}}\to\min
+\end{equation}
+In the coefficient space $\left(i\text{,}j,k\right)$ the combination
+that satisfies the above formula is a straight line.
+
+\begin{equation}
+\left[{\begin{array}{l}
+i\\
+j\\
+k
+\end{array}}\right]=t\left[{\begin{array}{l}
+{f_{i}}\\
+{f_{j}}\\
+{f_{k}}
+\end{array}}\right]
+\end{equation}
+It can be known from Eq. (7) that the noise amplification factor in
+terms of length is the smallest when the combination coefficient is
+proportional to the subcarrier frequency. Therefore, in the OFDM ranging
+system, the combination coefficient is determined according to the
+predetermined subcarrier frequency to ensure that the result is affected
+by noise Minimal, it is helpful to improve the accuracy of the ambiguity
+solution. The geometric distance between the transmitting end and
+the receiving end is calculated by combining the phase observations.
+
+\section{positioning algorithm and technology}
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{picture/position}} 
+\par\end{centering}
+\caption{Indoor wireless positioning diagram}
+\end{figure}
+
+Figure 5 illustrates the indoor positioning method. The receiver measures
+the distances $R_{1}$, $R_{2}$, $R_{3}$, $R_{4}$ and the coordinates
+of the base stations from the four base stations, and obtains the
+coordinates of the receiver through a geometric positioning algorithm.
+Geometric positioning methods, such as the least squares method, are
+closely related to positioning accuracy. The next chapter proves the
+ranging accuracy of this system.The algorithm can be summarized as
+follows. 
+\begin{enumerate}
+\item Determine the subcarrier frequency used for ranging. 
+\item The receiver broadcasts the request positioning signal and prepares
+to receive it. 
+\item The receiver multiple receives positioning signals from transmitters. 
+\item Extracting subcarrier signals and combine subcarrier observations. 
+\item Get the distances between the receiver and the transmitters. 
+\item Calculate receiver coordinates using geometric algorithms. mathematical
+model of base station positioning
+\end{enumerate}
+As shown in the figure 5, the four Anchors are deployed in advance
+as base stations, and the position coordinates of the four Anchors
+are calibrated and recorded as $A0\left(x_{a0},y_{a0},z_{a0}\right)$,$A1\left(x_{a1},y_{a1},z_{a1}\right)$,$A2\left(x_{a2},y_{a2},z_{a2}\right)$,
+and $A3\left(x_{a3},y_{a3},z_{a3}\right)$, respectively. At a certain
+time k, the distances between the Tag and the four Anchors are $R_{1},R_{2},R_{3},R_{4}$,
+respectively. 
+
+The base station positioning principle is to measure the distance
+between a tag and 3 or more Anchors, and solve the distance equation
+to get the position coordinates of the measured tag, which can be
+expressed as follows: 
+\begin{equation}
+R\left(x,y,z\right)=\sqrt{\left(x-x_{a}\right)^{2}+\left(y-y_{a}\right)^{2}+\left(z-z_{a}\right)^{2}}
+\end{equation}
+
+Among them,$\left(x,y,z\right)$ is the TAG coordinate to be solved,
+$\left(x_{a},y_{a},z_{a}\right)$ is the Anchor coordinate calibrated
+in advance, and R is the geometric distance between the TAG and Anchor.
+
+\subsection{ranging positioning analysis}
+
+When using our proposed positioning method, i.e. four base stations
+to locate a target point, the following four situations generally
+occur.
+
+Case 1: Each observation is within the normal error range, which is
+in line with the statistical characteristics of the measurement error.
+
+In this case, the four ranging circles may not converge at one point,
+but form a converging area with a relatively small area. The ideal
+situation is that the four circles meet at one point. This situation
+only occurs when all positioning base station systems have no errors.
+
+Case 2: One of the base stations has a large ranging error, and the
+other base stations have normal ranging errors.
+
+This situation usually occurs in an environment where a certain signal
+propagation path is blocked. If in this case the solution of the anchor
+point equations directly will lead to an increase in the uncertainty
+of the results. In order to get better positioning results, the best
+way is to find the abnormal ranging device first and then remove it
+from the solving equations; the next best method is to weight the
+processing to reduce the impact on the positioning results.
+
+Case 3: All ranging circles do not form an intersection area.
+
+This situation of no intersection area is caused by the signals of
+the four ranging devices being blocked. It does not have a least squares
+solution. At this time, the least squares cannot converge, and the
+correct positioning point cannot be found.
+
+Case 4: Only two base stations have ranging information.
+
+This situation occurs when two base stations are able to perform normal
+ranging normally, and the other two base stations are unable to operate
+normally and cannot perform normal ranging. In this case, there are
+only two ranging information. In three-dimensional space, only two
+ranging information cannot be solved. If approximate positioning points
+are required, additional constraint information needs to be added.
+
+\subsection{nonlinear least squares iteration}
+
+According to the ranging information of the four base stations, the
+corresponding ranging equations can be obtained, and the coordinates
+of the target positioning can be obtained by solving the ranging equations.
+In this article, we use nonlinear least squares iteration to solve
+this ranging equations. 
+
+Assuming that the estimated value of the TAG coordinate is $\hat{\boldsymbol{\beta}}=\left(\hat{x},\hat{y},\hat{z}\right)$,
+the first-order Taylor expansion of the ranging Eq.(14) at $\hat{\boldsymbol{\beta}}$
+is obtained as:
+
+\begin{equation}
+R\left(x,y,z\right)=R\left(\hat{x},\hat{y},\hat{z}\right)+\frac{\partial R}{\partial x}\cdot\left(x-\hat{x}\right)+\frac{\partial R}{\partial y}\cdot\left(y-\hat{y}\right)+\frac{\partial R}{\partial z}\cdot\left(z-\hat{z}\right)+\mathcal{O}\left(\hat{\boldsymbol{\beta}}\right)^{2}
+\end{equation}
+
+In order to facilitate expression and perform matrix operations, the
+following equation holds:
+
+\begin{equation}
+\triangle R=R\left(x,y,z\right)-R\left(\hat{x},\hat{y},\hat{z}\right)=R-\hat{R}
+\end{equation}
+
+\begin{equation}
+\triangle x=x-\hat{x},\triangle y=y-\hat{y},\triangle z=z-\hat{z}
+\end{equation}
+
+\begin{equation}
+\hat{r}=\sqrt{\left(\hat{x}-x_{a}\right)^{2}+\left(\hat{y}-y_{a}\right)^{2}+\left(\hat{z}-z_{a}\right)^{2}}
+\end{equation}
+
+According to Eqs.(14),(15),(16),(17),(18) and the partial differential
+formula, the following equations can be obtained:
+
+\begin{equation}
+\frac{\partial R}{\partial x}=\frac{x-\hat{x}}{\hat{r}},\frac{\partial R}{\partial y}=\frac{y-\hat{y}}{\hat{r}},\frac{\partial R}{\partial z}=\frac{z-\hat{z}}{\hat{r}}
+\end{equation}
+
+To facilitate matrix operations, let the following equation be:
+
+\begin{equation}
+\boldsymbol{u}=\left[\frac{\partial R}{\partial x},\frac{\partial R}{\partial y},\frac{\partial R}{\partial z}\right]
+\end{equation}
+
+If there are m sets of ranging information, and the second order and
+above errors of Eq.(15) are discarded, the nonlinear ranging equation
+can be linearized into the following equations:
+
+\begin{equation}
+\left[\begin{array}{c}
+\triangle R_{1}\\
+\triangle R_{2}\\
+\vdots\\
+\triangle R_{m}
+\end{array}\right]=\left[\begin{array}{ccc}
+\frac{\partial R_{1}}{\partial x} & \frac{\partial R_{1}}{\partial y} & \frac{\partial R_{1}}{\partial z}\\
+\frac{\partial R_{2}}{\partial x} & \frac{\partial R_{2}}{\partial y} & \frac{\partial R_{2}}{\partial z}\\
+\vdots & \vdots & \vdots\\
+\frac{\partial R_{m}}{\partial x} & \frac{\partial R_{m}}{\partial y} & \frac{\partial R_{m}}{\partial z}
+\end{array}\right]\cdot\left[\begin{array}{c}
+\triangle x\\
+\triangle y\\
+\triangle z
+\end{array}\right]
+\end{equation}
+
+Write Eq.(16) as a matrix, as follows:
+
+\begin{equation}
+\mathbf{\triangle\boldsymbol{R}=H\cdot\triangle\hat{\boldsymbol{\beta}}}
+\end{equation}
+
+Where,
+
+\begin{equation}
+\triangle\boldsymbol{R}=\left[\begin{array}{c}
+\triangle R_{1}\\
+\triangle R_{2}\\
+\vdots\\
+\triangle R_{m}
+\end{array}\right],\mathbf{H}=\left[\begin{array}{ccc}
+\frac{\partial R_{1}}{\partial x} & \frac{\partial R_{1}}{\partial y} & \frac{\partial R_{1}}{\partial z}\\
+\frac{\partial R_{2}}{\partial x} & \frac{\partial R_{2}}{\partial y} & \frac{\partial R_{2}}{\partial z}\\
+\vdots & \vdots & \vdots\\
+\frac{\partial R_{m}}{\partial x} & \frac{\partial R_{m}}{\partial y} & \frac{\partial R_{m}}{\partial z}
+\end{array}\right],\triangle\hat{\boldsymbol{\beta}}=\left[\begin{array}{c}
+\triangle x\\
+\triangle y\\
+\triangle z
+\end{array}\right]
+\end{equation}
+
+Finally, the least square solution of Eq.(17) is obtained as follows:
+
+\begin{equation}
+\triangle\hat{\boldsymbol{\beta}}=\left(\mathbf{H}^{T}\cdot\mathbf{H}\right)^{-1}\cdot\mathbf{H}^{T}\cdot\triangle\boldsymbol{R}
+\end{equation}
+
+$\mathbf{H}$ is the observation matrix, which is a Jacobian matrix.
+From the above Eq.(15) to (24), the solution process of the nonlinear
+least squares is given.
+
+The specific solution steps are given below:
+
+Step 1:Sets the initial value of the nonlinear least squares iteration.
+
+Set to $\hat{\boldsymbol{\beta}}=\left[0,0,0\right]^{T}$ or the estimated
+value at the previous moment, i.e. $\hat{\boldsymbol{\beta}}=\hat{\boldsymbol{\beta}}_{k-1}$.
+
+Step 2: Calculate the prior ranging error $\triangle\boldsymbol{R}$
+by using Eq.(16).
+
+Step 3: Calculate the cosine vector $\mathbf{u}$ and the observation
+matrix $\mathbf{H}$ of the ranging direction by using Eqs.(18),(19).
+
+Step 4: Use Eq.(24) to solve the state estimation error vector $\triangle\hat{\boldsymbol{\beta}}$.
+
+Step 5: according to Eq.(17), update the current iteration state:
+$\hat{\boldsymbol{\beta}}=\hat{\boldsymbol{\beta}}+$$\triangle\hat{\boldsymbol{\beta}}$.
+
+Step 6: Judge whether convergence. The convergence condition is: $\left\Vert \triangle\hat{\boldsymbol{\beta}}\right\Vert _{2}\leq Th$,
+generally $Th=10^{-6}$.
+
+If the convergence condition is satisfied, then $\hat{\boldsymbol{\beta}}$
+at this time is the state least squares estimation value of the current
+epoch, and step 7 is continued. Otherwise, return to step 2 and continue
+the iteration. A number of iterations can be set to prevent a dead
+loop from always failing to meet the convergence conditions. Generally,
+convergence can be achieved in 3-5 iterations.
+
+Step 7: Calculate the estimation error.
+
+\section{FIM and CRLB for ranging}
+
+The likelihood function of $\theta$ satisfies the following conditions
+
+\begin{equation}
+\begin{aligned}\Lambda(R(f) & ;\boldsymbol{\theta})\\
+ & \propto\exp\left(-\frac{1}{N_{\mathrm{f}}}\left\Vert R(f)-\frac{TA_{k}}{2}\sum_{l=1}^{L}\alpha_{l}e^{-j\left(2\pi f\tau_{l}-\phi_{k}\right)}\right\Vert ^{2}\right)
+\end{aligned}
+\end{equation}
+Since the noise components at different samples in $\mathcal{R}_{\mathrm{f}}$
+are i.i.d. complex Gaussian, $\Lambda(\cdot;\boldsymbol{\theta})$
+can be expressed as the product of the likelihood functions at different
+sampled frequencies.According to the log-likelihood function, the
+Score function is calculated. Calculate the second-order moment of
+the Score function. Fisher information can be obtained
+
+\begin{equation}
+{{\mathbf{F}}_{\mathbf{\theta}}}=\left[{\begin{array}{lc}
+{{\mathbf{F}}_{{\mathbf{\tau\tau}}}} & {{\mathbf{F}}_{{\mathbf{\tau a}}}}\\
+{{\mathbf{F}}_{{\mathbf{a\tau}}}} & {{\mathbf{F}}_{{\mathbf{aa}}}}
+\end{array}}\right]
+\end{equation}
+where
+
+\begin{equation}
+\mathbf{F}_{\theta}=\mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ -\frac{\partial^{2}\ln\Lambda\left(\mathcal{R}_{\mathrm{f}};\boldsymbol{\theta}\right)}{\partial\boldsymbol{\theta}\partial\boldsymbol{\theta}^{\mathrm{T}}}\right\} 
+\end{equation}
+It can be known from the above formula that the Fisher information
+of the positioning parameter is independent of the symbol phase.The
+mean squared error (MSE) of ${\mathbf{\theta}}$ is bounded as
+
+\begin{equation}
+\mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ (\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})^{\mathrm{T}}\right\} \succeq\mathbf{F}_{\boldsymbol{\theta}}^{-1}
+\end{equation}
+$\mathbf{F}_{\boldsymbol{\theta}}$ can be calculated as the sum of
+the FIMs for all subcarriers as shown in Eq. (18).
+
+\begin{equation}
+\mathbf{F}_{\theta}=\sum_{k=0}^{N-1}\left(\mathbf{F}\left(f_{\mathrm{c}}+f_{k}\right)+\mathbf{F}\left(-f_{\mathrm{c}}-f_{k}\right)\right)
+\end{equation}
+the FIM at frequency f $\mathbf{F}(f)$ can be calculated from Eqs.
+(14), (16)
+
+\begin{equation}
+\mathbf{F}(f)=\mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ -\frac{\partial^{2}\ln\Lambda(R(f);\boldsymbol{\theta})}{\partial\boldsymbol{\theta}\partial\boldsymbol{\theta}^{\mathrm{T}}}\right\} 
+\end{equation}
+After somealgebra, theelements in $\mathbf{F}(f)$ are calculated
+as follows,
+
+\begin{equation}
+\mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ -\frac{\partial^{2}\ln\Lambda(R(f);\boldsymbol{\theta})}{\partial\tau_{i}\partial\tau_{j}}\right\} =\frac{\alpha_{i}\alpha_{j}T}{N_{0}}P_{k}(2\pi f)^{2}\cos\left(2\pi f\tau_{ij}\right)
+\end{equation}
+
+\begin{equation}
+\mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ -\frac{\partial^{2}\ln\Lambda(R(f);\boldsymbol{\theta})}{\partial\tau_{i}\partial\alpha_{j}}\right\} =-\frac{\alpha_{i}T}{N_{0}}P_{k}(2\pi f)\sin\left(2\pi f\tau_{ij}\right)
+\end{equation}
+
+\begin{equation}
+\mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ -\frac{\partial^{2}\ln\Lambda(R(f);\boldsymbol{\theta})}{\partial\alpha_{i}\partial\alpha_{j}}\right\} =\frac{T}{N_{0}}P_{k}\cos\left(2\pi f\tau_{ij}\right)
+\end{equation}
+where $\tau_{ij}=\tau_{i}-\tau_{j}$ , $0\leq i,j\leq L-1$ and $P_{k}=A_{k}^{2}$
+is the power of the $k$th subcarrier. As can be seen from Eqs. (20),
+(21) and (22), FIM is independent of the phase of the data. Substitute
+the above formula into Eq. (18), we obtain the expressions of the
+elements in $\mathbf{F}_{\boldsymbol{\theta}}$. The CRLB for the
+mean-square estimation error of $\tau_{0}$ is $\sigma_{\mathrm{CRB}}^{2}\left(\tau_{0}\right)$.
+The CRB can be written as
+
+\begin{equation}
+\mathbb{E}_{\mathcal{R}_{f}}\left[\left(\hat{\tau}_{0}-\tau_{0}\right)^{2}\right]\geq\sigma_{\mathrm{CRB}}^{2}\left(\tau_{0}\right)=\left[\mathbf{F}_{\theta}^{-1}\right]_{1,1}
+\end{equation}
+where $\left[\mathbf{F}_{\theta}\right]_{1,1}$ is the equivalent
+Fisher information (EFI) of $\tau_{0}$. Since $f_{\mathrm{c}}$ is
+much larger than the bandwidth for most OFDM signals, we approximate
+the elements in $\mathbf{F}_{\boldsymbol{\theta}}$ except for $\left[\mathbf{F}_{\theta}\right]_{1,1}$
+as follows
+
+\begin{equation}
+\sum P_{k}\omega_{\mathrm{c}k}^{2}\cos\left(\omega_{\mathrm{c}k}\tau_{ij}\right)\approx\omega_{\mathrm{c}}^{2}\sum P_{k}\cos\left(\omega_{\mathrm{c}k}\tau_{ij}\right)
+\end{equation}
+
+\begin{equation}
+\sum P_{k}\omega_{\mathrm{c}k}\sin\left(\omega_{\mathrm{c}k}\tau_{ij}\right)\approx\omega_{\mathrm{c}}\sum P_{k}\sin\left(\omega_{\mathrm{c}k}\tau_{ij}\right)
+\end{equation}
+
+\begin{equation}
+\sum P_{k}\omega_{\mathrm{c}k}^{2}\approx2\omega_{\mathrm{c}}^{2}E_{\mathrm{T}}/T
+\end{equation}
+
+In multipath channels, the performance of ranging is de- graded due
+to the overlap between the first path and the subsequent paths in
+the received waveform$^{\cite{Shen2010Fundamental}}$. Since the second
+path is closest to the first path, in the following analysis, we focus
+mainly on the performance analysis for ranging in the two-path channel.
+The approximate EFI for ranging based on Eqs. (24), (25), and (26)
+in the two-path channel is given by
+
+\begin{equation}
+\left[\mathbf{F}_{\theta}\right]_{1,1}=\frac{2\alpha_{0}^{2}T}{N_{0}}\left(\sum_{k=0}^{N-1}P_{k}\omega_{\mathrm{c}k}^{2}-\frac{\omega_{\mathrm{c}}^{2}T}{2E_{\mathrm{T}}}h\right)
+\end{equation}
+where 
+\begin{equation}
+h=\left(\sum_{k=0}^{N-1}P_{k}\cos\left(\omega_{k}\tau\right)\right)^{2}+\left(\sum_{k=0}^{N-1}P_{k}\sin\left(\omega_{k}\tau\right)\right)^{2}
+\end{equation}
+and $\tau=\tau_{1}-\tau_{0}$. The first term of the polynomial in
+equation 21 is the EFI of ranging in the single- path channel, and
+the second term represents the effect of path-overlap in multipath
+channels.we will quantify the impact of OFDM channel parameters on
+EFI based on Eq. (28).We consider total energy constraint, in which
+the energy of the FFT part of one OFDM symbol is constrained as 
+\begin{equation}
+\int_{0}^{T}{s^{2}}(t)dt=\frac{T}{2}\sum\limits _{k=0}^{N-1}{P_{k}}\leqslant{E_{\text{T}}}
+\end{equation}
+where ${E_{\text{T}}}$ is the maximum total transmit energy.Based
+on Eqs. (28) and (30), EFI can be rewritten as
+
+\begin{equation}
+\begin{aligned}\left[\mathbf{F}_{\theta}\right]_{1,1}= & \frac{2\alpha_{0}^{2}T}{N_{0}}\left[\left(\frac{2E_{\mathrm{T}}}{T}-\frac{Th}{2E_{\mathrm{T}}}\right)\omega_{\mathrm{c}}^{2}\right.\\
+ & \left.+\sum_{k=0}^{N-1}P_{k}\left(2\omega_{\mathrm{c}}\omega_{k}+\omega_{k}^{2}\right)\right]
+\end{aligned}
+\end{equation}
+Therefore, ${\left[{{\mathbf{F}}_{\mathbf{\theta}}}\right]_{1,1}}\propto{f_{c}}$.
+EFI can be expressed as a function of M and $\Delta f$ as follows
+
+\begin{equation}
+\begin{aligned}\left[\mathbf{F}_{\theta}\right]_{1,1}= & \frac{2\alpha_{1}^{2}}{N_{0}}\left[2E_{\mathrm{T}}\omega_{\mathrm{c}}^{2}+\frac{E_{\mathrm{T}}\Delta\omega^{2}}{6}\left(4M^{2}-1\right)\right.\\
+- & \left.\frac{E_{\mathrm{T}}\omega_{\mathrm{c}}^{2}}{2M^{2}}\frac{\sin^{2}(M\Delta\omega\tau)}{\sin^{2}(\Delta\omega\tau/2)}\right]
+\end{aligned}
+\end{equation}
+where ${\omega_{\text{c}}}=2\pi{f_{\text{c}}}$, ${\omega_{k}}=2\pi{f_{k}}$
+and $\Delta\omega=2\pi\Delta f$. Thus,the EFI for ranging can be
+increased by using larger subcarrier spacing.According to the definition
+of CRLB, as shown in Eq. (23), this shows that the larger the subcarrier
+spacing is, the smaller the CRLB will be.
+
+\section{Simulation results}
+
+In this section, we evaluate the effects of signal and channel parameters
+on the CRLB for OFDM ranging accuracy.
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{CRB_F_DELTA}} 
+\par\end{centering}
+\caption{CRLB baseline and MSE under different $\Delta f$}
+\end{figure}
+
+As shown in FIG. 6, the larger the frequency spacing used for positioning,
+the smaller the CRLB, and the higher the ranging accuracy. It shows
+that this method has better performance in multipath channel environment.
+When the multipath delay is much smaller than T, the influence of
+the multipath signal on the ranging accuracy can be ignored. The results
+of using the positioning algorithm are slightly worse than CRLB, but
+remain basically the same.
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{CRB_FC}} 
+\par\end{centering}
+\caption{CRLB baseline and MSE under different ${f_{c}}$}
+\end{figure}
+
+As shown in the figure above, the larger the fc, the Smaller the CRLB
+of the ranging information, and the Fisher information is proportional
+to the square of the fc. The results show that in a 4G to 5G system,
+because the FC becomes larger, the ranging accuracy will perform better.
+Therefore, this solution can be used in 4G and 5G signals and has
+better performance in high-frequency signals.
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{CRB_n}} 
+\par\end{centering}
+\caption{MSE of different methods when the number of subcarriers changes}
+\end{figure}
+
+As shown in FIG.8, the larger N is, the smaller the CRLB is, that
+is, the more accurate the ranging information is. In accordance with
+the previous section, Fisher information is proportional to the square
+of N. However, a larger N means that the positioning signal needs
+to occupy more subcarriers. At this time, the number of subcarriers
+occupied by the communication data becomes smaller, that is, the communication
+capacity is reduced. Therefore, when three sub-carriers are selected,
+positioning is sufficient to meet the accuracy of indoor positioning
+applications, reaching the centimeter level, while not occupying too
+much communication resources, and ensuring that the original communication
+capacity is not affected much.
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{CRB_snr}} 
+\par\end{centering}
+\caption{RMSE of different positioning methods}
+\end{figure}
+
+As shown in Figure 9. The RMSEs of ML algorithms of various indoor
+positioning technologies are compared. These technologies are based
+on ranging positioning methods. When using the same ML positioning
+algorithm, ranging accuracy is positively related to positioning.
+Under the condition of high signal-to-noise ratio, the positioning
+accuracy ratio of RFID decreases rapidly. The multi-frequency positioning
+accuracy proposed in this paper is much better than indoor positioning
+methods such as PN, UWB and RFID.
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{HDOP}} 
+\par\end{centering}
+\caption{HDOP of OFDM position system}
+\end{figure}
+
+Figure 10 shows the horizontal component precision factor. Four base
+stations are set on the same horizontal plane at a height of 2m with
+coordinates of (0,0,2) (0,20,2) (20,0,2) (20,20,2). Where coordinates
+are in meters.
+
+\section{Conclusions}
+
+This paper introduces a method for multi-frequency ranging using sub-carriers
+in an OFDM communication system. The integrated OFDM communication
+and positioning system is first introduced, including ranging subcarrier
+selection and ranging frame format. Because the ranging positioning
+only needs to know the position coordinates of the base station, the
+base station coordinates of the transmitted signal are included in
+the ranging frame. Subsequently, a ranging signal model transmitted
+by the base station was established, and the CRLB of the ranging was
+proved. Finally, simulation experiments prove that the RMSE of the
+ranging and positioning system has superior accuracy compared with
+other indoor positioning methods.
+
+\section*{References}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{OfdmConference}
+
+\end{document}
