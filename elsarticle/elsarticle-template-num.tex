@@ -7,6 +7,11 @@
 \usepackage{graphicx}
 
 \makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 %%
 %% Copyright 2007-2019 Elsevier Ltd
@@ -546,7 +551,7 @@ combining the phase observations.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{\string"picture/antenna position\string".eps}} 
+\textsf{\includegraphics[width=3.5in]{\string"picture/four anchors position\string".eps}}
 \par\end{centering}
 \caption{Indoor wireless positioning}
 \end{figure}
@@ -554,20 +559,34 @@ combining the phase observations.
 Positioning accuracy is closely related to the accuracy of ranging
 information\citep{Donglin2019Quasi}. Algorithms that use ranging
 information to calculate the receiver's three-dimensional coordinates
-usually require signals from four transmitters to locate. Since OFDM
-usually uses antenna arrays, multiple antennas can be used for positioning
-in one transmitter, which can reduce the number of transmitters required
-for positioning compared with common methods, as shown in fig. 4.5.
-The receiver measures the distance from the four antennas and knows
-the coordinates of the antennas. The coordinates of the receiver are
-obtained through geometric positioning algorithm.Figure 5 illustrates
-the indoor positioning method. The receiver measures the distances
-$R_{1}$, $R_{2}$, $R_{3}$, $R_{4}$ and the coordinates of the
-base stations from the four base stations, and obtains the coordinates
-of the receiver through a geometric positioning algorithm. Geometric
-positioning methods, such as the least squares method, are closely
-related to positioning accuracy. The next chapter proves the ranging
-accuracy of this system.The algorithm can be summarized as follows. 
+usually require signals from four transmitters to locate. The receiver
+measures the distance from the four base stations and knows the coordinates
+of the base stations. The coordinates of the receiver are obtained
+through geometric positioning algorithm.Figure 5 illustrates the indoor
+positioning method. The receiver measures the distances $R_{1}$,
+$R_{2}$, $R_{3}$, $R_{4}$ and the coordinates of the base stations
+from the four base stations, and obtains the coordinates of the receiver
+through a geometric positioning algorithm. Geometric positioning methods,
+such as the least squares method, are closely related to positioning
+accuracy. 
+
+Since OFDM usually uses antenna arrays, multiple antennas can be used
+for positioning in one transmitter, which can reduce the number of
+transmitters required for positioning compared with common methods,
+as shown in Fig. 6.The positioning algorithm for multiple antennas
+and multiple base stations is the same, except that the position coordinates
+of the antennas are substituted for the position coordinates of the
+base stations.
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{\string"picture/antenna position\string".eps}}
+\par\end{centering}
+\caption{multi-antenna wireless positioning}
+\end{figure}
+
+The next chapter proves the ranging accuracy of this system.The algorithm
+can be summarized as follows. 
 \begin{enumerate}
 \item Determine the subcarrier frequency used for ranging. 
 \item The receiver broadcasts the request positioning signal and prepares
@@ -578,15 +597,15 @@ to receive it.
 \item Calculate receiver coordinates using geometric algorithms. mathematical
 model of base station positioning
 \end{enumerate}
-As shown in the figure 5, the four Anchors are deployed in advance
-as base stations, and the position coordinates of the four antennas
+As shown in the figure 5, the four anchors are deployed in advance
+as base stations, and the position coordinates of the four anchors
 are calibrated and recorded as $A0\left(x_{a0},y_{a0},z_{a0}\right)$,$A1\left(x_{a1},y_{a1},z_{a1}\right)$,$A2\left(x_{a2},y_{a2},z_{a2}\right)$,
 and $A3\left(x_{a3},y_{a3},z_{a3}\right)$, respectively. At a certain
 time k, the distances between the receiver and the four antennas are
 $R_{1},R_{2},R_{3},R_{4}$, respectively. 
 
 The base station positioning principle is to measure the distance
-between a receiver and 3 or more antennas , and solve the distance
+between a receiver and 3 or more base stations , and solve the distance
 equation to get the position coordinates of the measured receiver,
 which can be expressed as follows: 
 \begin{equation}
@@ -594,9 +613,9 @@ R\left(x,y,z\right)=\sqrt{\left(x-x_{a}\right)^{2}+\left(y-y_{a}\right)^{2}+\lef
 \end{equation}
 
 Among them,$\left(x,y,z\right)$ is the receiver coordinate to be
-solved, $\left(x_{a},y_{a},z_{a}\right)$ is the antenna coordinate
+solved, $\left(x_{a},y_{a},z_{a}\right)$ is the base station coordinate
 calibrated in advance, and R is the geometric distance between the
-receiver and antenna.
+receiver and base stations.
 
 \subsection{ranging positioning analysis}
 
@@ -771,7 +790,7 @@ convergence can be achieved in 3-5 iterations.
 
 Step 7: Calculate the estimation error.
 
-\section{FIM and CRLB for ranging}
+\section{Analysis of Ranging Accuracy}
 
 Cramer-Rao Lower Bound (CRLB) can be used to calculate the best estimation
 accuracy that can be obtained in unbiased estimation, so it is often
@@ -918,7 +937,7 @@ spacing is, the smaller the CRLB will be.
 
 In this section, we evaluate the effects of signal and channel parameters
 on the CRLB for OFDM ranging accuracy. We consider an OFDM system
-with 122 subcarriers. The central frequency is 5 GHz and subcarrier
+with 121 subcarriers. The central frequency is 5 GHz and subcarrier
 spacing of 4 MHz. One of the parameters can be changed in the experiment.
 Four base stations are set on the same horizontal plane at a height
 of 2m with coordinates of (0,0,2) (0,20,2) (20,0,2) (20,20,2). 100
@@ -934,11 +953,12 @@ locations on the base station plane to calculate MSE and RMSE.
 
 As shown in FIG. 6, the larger the frequency spacing used for positioning,
 the smaller the CRLB, and the higher the ranging accuracy. It shows
-that this method has better performance in multipath channel environment.
-When the multipath delay is much smaller than T, the influence of
-the multipath signal on the ranging accuracy can be ignored. The results
-of using the positioning algorithm are slightly worse than CRLB, but
-remain basically the same.
+that the proposed method has better performance in multipath environment.
+Therefore, the frequency difference of the three subcarriers should
+be chosen as large as possible. Select the 1st, 61st and 121st of
+121 subcarriers. At this time, the subcarrier spacing is 240MHz, and
+the corresponding MSE is 0.0017. The results of using the positioning
+algorithm are slightly worse than CRLB, but remain basically the same.
 
 \begin{figure}[htbp]
 \begin{centering}
@@ -949,10 +969,10 @@ remain basically the same.
 
 As shown in the figure above, the larger the fc, the Smaller the CRLB
 of the ranging information, and the Fisher information is proportional
-to the square of the fc. The results show that in a 4G to 5G system,
-because the FC becomes larger, the ranging accuracy will perform better.
-Therefore, this solution can be used in 4G and 5G signals and has
-better performance in high-frequency signals.
+to the square of the $f_{c}$ . The MSE is 0.0096 at 3GHz and 0.0012
+at 6GHz. The results show that in a 4G to 5G system, because the $f_{c}$
+becomes larger, the ranging accuracy will perform better. Therefore,
+the proposed method has better performance in high frequency signals.
 
 \begin{figure}[htbp]
 \begin{centering}
@@ -967,11 +987,12 @@ the previous section, Fisher information is proportional to the square
 of N. However, a larger N means that the positioning signal needs
 to occupy more subcarriers. At this time, the number of subcarriers
 occupied by the communication data becomes smaller, that is, the communication
-capacity is reduced. Therefore, when three sub-carriers are selected,
-positioning is sufficient to meet the accuracy of indoor positioning
-applications, reaching the centimeter level, while not occupying too
-much communication resources, and ensuring that the original communication
-capacity is not affected much.
+capacity is reduced. When single subcarrier is used, MSE is 0.0096
+and when triple frequency is used, MSE is 0.0017. Therefore, when
+three subcarriers are selected for positioning, MSE is increased by
+80\%, and at the same time, it does not occupy too much communication
+resources, thus ensuring that the original communication capacity
+is not affected too much.
 
 \begin{figure}[htbp]
 \begin{centering}
@@ -989,6 +1010,21 @@ accuracy ratio of RFID decreases rapidly. The multi-frequency positioning
 accuracy proposed in this paper is much better than indoor positioning
 methods such as PN, UWB and RFID.
 
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+SNR(dB) & 5 & 10 & 15 & 20\tabularnewline
+\hline 
+\hline 
+proposed menthod & 0.12042 & 0.08594 & 0.06133 & 0.04177\tabularnewline
+\hline 
+UWB & 0.51036 & 0.32630 & 0.20862 & 0.13338\tabularnewline
+\hline 
+RFID & 0.90820 & 0.42512 & 0.19899 & 0.09315\tabularnewline
+\hline 
+PN & 2.12000 & 1.16961 & 0.68399 & 0.40000\tabularnewline
+\hline 
+\end{tabular}
+
 \begin{figure}[htbp]
 \begin{centering}
 \textsf{\includegraphics[width=3.5in]{HDOP}} 
@@ -996,11 +1032,15 @@ methods such as PN, UWB and RFID.
 \caption{HDOP of OFDM position system}
 \end{figure}
 
-Figure 10 shows the horizontal component precision factor. Four base
-stations are set on the same horizontal plane at a height of 2m with
-coordinates of (0,0,2) (0,20,2) (20,0,2) (20,20,2). Where coordinates
-are in meters. The positioning effect in the middle position is worse
-than that in the peripheral position.
+Figure 10 shows the horizontal dilution of precision (HDOP). Four
+base stations are set on the same horizontal plane at a height of
+2m with coordinates of (0,0,2) (0,20,2) (20,0,2) (20,20,2). Where
+coordinates are in meters. The positioning effect in the middle position
+is worse than that in the peripheral position.Since the receiver has
+similar angles to the four base stations at the center point, HDOP
+is large and the calculation error is large. Therefore, although OFDM
+can use multiple antennas of one base station to locate, its accuracy
+is not as good as that of four base stations
 
 \section{Conclusions}
 
