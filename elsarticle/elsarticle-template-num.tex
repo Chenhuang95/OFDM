@@ -68,6 +68,10 @@
 
 \journal{Signal Processing}
 
+
+
+
+
 \makeatother
 
 \begin{document}
@@ -133,7 +137,6 @@ of Communication Engineering, Xidian University.}
 \address[3]{Xidian University, Xi’an, Shaanxi province, China}
 
 %% Text of abstract
-
 \begin{abstract}
 Indoor positioning has great research value due to the problems of
 indoor multipath environment and lack of GNSS signals. This paper
@@ -171,6 +174,7 @@ The CRLB of this ranging positioning system is proved. How to select
 subcarrier frequency is proposed.\end{highlights}
 
 %% keywords here, in the form: keyword \sep keyword
+
 \begin{keyword}
 OFDM\sep multi-frequency ranging\sep indoor location\sep CRLB %% PACS codes here, in the form: \PACS code \sep code
 
@@ -290,7 +294,7 @@ good resistance to multipath.
 
 \begin{figure}[htbp]
 \begin{centering}
-\includegraphics[width=3.5in]{\string"modulation process\string".eps} 
+\includegraphics[width=3.5in]{\string"picture/OFDM transmitter\string".eps} 
 \par\end{centering}
 \caption{OFDM modulation process}
 \end{figure}
@@ -304,7 +308,7 @@ the actual transmitted signal of the OFDM.
 
 \begin{figure}[htbp]
 \begin{centering}
-\includegraphics[width=3.5in]{\string"demodulation process\string".eps} 
+\includegraphics[width=3.5in]{\string"picture/OFDM receiver\string".eps} 
 \par\end{centering}
 \caption{Receiver OFDM demodulation process}
 \end{figure}
@@ -319,22 +323,23 @@ Conventor.
 
 \begin{figure}[htbp]
 \begin{centering}
-\includegraphics[width=3.5in]{E:/ofdm/subCarriers} 
+\includegraphics[width=3.5in]{picture/subCarriers} 
 \par\end{centering}
 \caption{OFDM power spectrum diagram}
 \end{figure}
 
 The OFDM ranging method proposed in this paper uses three subcarriers
-$f_{0}$, $f_{M}$, $f_{N-1}$which are specifically used for ranging,
+$f_{0}$, $f_{1}$, $f_{2}$which are specifically used for ranging,
 and the remaining subcarriers are used to transmit data just like
 the communication system. As shown in Figure 3, suppose there are
 N subcarriers in an OFDM system, and $f_{0}$ is the subcarrier with
-the smallest baseband frequency, where $f_{M}=f_{0}+N\Delta f/2$,
-$f_{N-1}=f_{0}+(N-1)\Delta f$.
+the smallest baseband frequency.The subcarrier frequency is determined
+in advance during positioning, and the three subcarrier data are skipped
+during parallel-to-serial conversion at the receiver for ranging alone.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{\string"picture/position frame\string".eps}} 
+\textsf{\includegraphics[width=7in]{\string"picture/position frame\string".eps}} 
 \par\end{centering}
 \caption{Ranging Data Frame}
 \end{figure}
@@ -532,7 +537,7 @@ k
 \end{equation}
 It can be known from Eq. (13) that the noise amplification factor
 in terms of length is the smallest when the combination coefficient
-is proportional to the subcarrier frequency. 
+is proportional to the subcarrier frequency.
 
 Based on Eq.(11), we can obtain the distance from the phase of the
 signal. 
@@ -551,7 +556,7 @@ combining the phase observations.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{\string"picture/four anchors position\string".eps}}
+\textsf{\includegraphics[width=3.5in]{\string"picture/four anchors position\string".eps}} 
 \par\end{centering}
 \caption{Indoor wireless positioning}
 \end{figure}
@@ -568,7 +573,7 @@ $R_{2}$, $R_{3}$, $R_{4}$ and the coordinates of the base stations
 from the four base stations, and obtains the coordinates of the receiver
 through a geometric positioning algorithm. Geometric positioning methods,
 such as the least squares method, are closely related to positioning
-accuracy. 
+accuracy.
 
 Since OFDM usually uses antenna arrays, multiple antennas can be used
 for positioning in one transmitter, which can reduce the number of
@@ -580,7 +585,7 @@ base stations.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{\string"picture/antenna position\string".eps}}
+\textsf{\includegraphics[width=3.5in]{\string"picture/antenna position\string".eps}} 
 \par\end{centering}
 \caption{multi-antenna wireless positioning}
 \end{figure}
@@ -595,14 +600,14 @@ to receive it.
 \item Extracting subcarrier signals and combine subcarrier observations. 
 \item Get the distances between the receiver and the transmitters. 
 \item Calculate receiver coordinates using geometric algorithms. mathematical
-model of base station positioning
+model of base station positioning 
 \end{enumerate}
 As shown in the figure 5, the four anchors are deployed in advance
 as base stations, and the position coordinates of the four anchors
 are calibrated and recorded as $A0\left(x_{a0},y_{a0},z_{a0}\right)$,$A1\left(x_{a1},y_{a1},z_{a1}\right)$,$A2\left(x_{a2},y_{a2},z_{a2}\right)$,
 and $A3\left(x_{a3},y_{a3},z_{a3}\right)$, respectively. At a certain
 time k, the distances between the receiver and the four antennas are
-$R_{1},R_{2},R_{3},R_{4}$, respectively. 
+$R_{1},R_{2},R_{3},R_{4}$, respectively.
 
 The base station positioning principle is to measure the distance
 between a receiver and 3 or more base stations , and solve the distance
@@ -664,7 +669,7 @@ According to the ranging information of the four base stations, the
 corresponding ranging equations can be obtained, and the coordinates
 of the target positioning can be obtained by solving the ranging equations.
 In this article, we use nonlinear least squares iteration to solve
-this ranging equations. 
+this ranging equations.
 
 Assuming that the estimated value of the TAG coordinate is $\hat{\boldsymbol{\beta}}=\left(\hat{x},\hat{y},\hat{z}\right)$,
 the first-order Taylor expansion of the ranging Eq.(15) at $\hat{\boldsymbol{\beta}}$
@@ -896,23 +901,24 @@ The approximate EFI for ranging based on Eqs. (36), (37), and (38)
 in the two-path channel is given by
 
 \begin{equation}
-\left[\mathbf{F}_{\theta}\right]_{1,1}=\frac{2\alpha_{0}^{2}T}{N_{0}}\left(\sum_{k=0}^{N-1}P_{k}\omega_{\mathrm{c}k}^{2}-\frac{\omega_{\mathrm{c}}^{2}T}{2E_{\mathrm{T}}}h\right)
+\left[\mathbf{F}_{\theta}\right]_{1,1}=\frac{2\alpha_{0}^{2}T}{N_{0}}\left(\sum_{k=0}^{N-1}P_{k}\omega_{\mathrm{c}k}^{2}-\frac{\omega_{\mathrm{c}}^{2}T}{2E_{\mathrm{T}}}h\right)\label{Eq.(39)}
 \end{equation}
 where 
 \begin{equation}
-h=\left(\sum_{k=0}^{N-1}P_{k}\cos\left(\omega_{k}\tau\right)\right)^{2}+\left(\sum_{k=0}^{N-1}P_{k}\sin\left(\omega_{k}\tau\right)\right)^{2}
+h=\left(\sum_{k=0}^{N-1}P_{k}\cos\left(\omega_{k}\tau\right)\right)^{2}+\left(\sum_{k=0}^{N-1}P_{k}\sin\left(\omega_{k}\tau\right)\right)^{2}\label{Eq.(40)}
 \end{equation}
 and $\tau=\tau_{1}-\tau_{0}$. The first term of the polynomial in
-Eq. (39) is the EFI of ranging in the single- path channel, and the
-second term represents the effect of path-overlap in multipath channels.we
-will quantify the impact of OFDM channel parameters on EFI based on
-Eq. (40).We consider total energy constraint, in which the energy
-of the FFT part of one OFDM symbol is constrained as 
+\ref{Eq.(39)} is the EFI of ranging in the single- path channel,
+and the second term represents the effect of path-overlap in multipath
+channels.we will quantify the impact of OFDM channel parameters on
+EFI based on \ref{Eq.(40)}.We consider total energy constraint, in
+which the energy of the FFT part of one OFDM symbol is constrained
+as 
 \begin{equation}
 \int_{0}^{T}{s^{2}}(t)dt=\frac{T}{2}\sum\limits _{k=0}^{N-1}{P_{k}}\leqslant{E_{\text{T}}}
 \end{equation}
 where ${E_{\text{T}}}$ is the maximum total transmit energy.Based
-on Eqs. (39) and (41), EFI can be rewritten as
+on \ref{Eq.(39)} and \ref{Eq.(40)}, EFI can be rewritten as
 
 \begin{equation}
 \begin{aligned}\left[\mathbf{F}_{\theta}\right]_{1,1}= & \frac{2\alpha_{0}^{2}T}{N_{0}}\left[\left(\frac{2E_{\mathrm{T}}}{T}-\frac{Th}{2E_{\mathrm{T}}}\right)\omega_{\mathrm{c}}^{2}\right.\\
@@ -1010,20 +1016,24 @@ accuracy ratio of RFID decreases rapidly. The multi-frequency positioning
 accuracy proposed in this paper is much better than indoor positioning
 methods such as PN, UWB and RFID.
 
+\begin{table}[h]
+\centering %表格居中
+\caption{MSE of different menthods}
+%表格标题
 \begin{tabular}{|c|c|c|c|c|}
 \hline 
-SNR(dB) & 5 & 10 & 15 & 20\tabularnewline
+SNR(dB)  & 5  & 10  & 15  & 20\tabularnewline
 \hline 
+proposed menthod  & 0.12042  & 0.08594  & 0.06133  & 0.04177\tabularnewline
 \hline 
-proposed menthod & 0.12042 & 0.08594 & 0.06133 & 0.04177\tabularnewline
+UWB  & 0.51036  & 0.32630  & 0.20862  & 0.13338\tabularnewline
 \hline 
-UWB & 0.51036 & 0.32630 & 0.20862 & 0.13338\tabularnewline
+RFID  & 0.90820  & 0.42512  & 0.19899  & 0.09315\tabularnewline
 \hline 
-RFID & 0.90820 & 0.42512 & 0.19899 & 0.09315\tabularnewline
-\hline 
-PN & 2.12000 & 1.16961 & 0.68399 & 0.40000\tabularnewline
+PN  & 2.12017  & 1.16961  & 0.68399  & 0.40138\tabularnewline
 \hline 
 \end{tabular}
+\end{table}
 
 \begin{figure}[htbp]
 \begin{centering}
@@ -1059,7 +1069,7 @@ can be less than 5cm.
 
 \section*{References}
 
-\bibliographystyle{elsarticle-num}
+ \bibliographystyle{elsarticle-num}
 \bibliography{OfdmConference}
 
 \end{document}
