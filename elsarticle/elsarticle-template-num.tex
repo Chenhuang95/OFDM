@@ -151,7 +151,9 @@ paper selects specific subcarriers in the OFDM communication system
 to be used for transmitting ranging frames and delay observations
 without affecting other subcarriers used for communication. The theory
 proves and simulates the relationship between ranging accuracy and
-accuracy and channel parameters in a multipath environment. 
+accuracy and channel parameters in a multipath environment. The simulation
+results show that the positioning accuracy of about 5cm can be achieved
+under the conditions of 5GHz frequency and high SNR.
 \end{abstract}
 %%Graphical abstract
 \begin{graphicalabstract} %\includegraphics{grabs}
@@ -321,13 +323,6 @@ Conventor.
 
 \subsection{multi-subcarrier ranging positioning}
 
-\begin{figure}[htbp]
-\begin{centering}
-\includegraphics[width=3.5in]{picture/subCarriers} 
-\par\end{centering}
-\caption{OFDM power spectrum diagram}
-\end{figure}
-
 The OFDM ranging method proposed in this paper uses three subcarriers
 $f_{0}$, $f_{1}$, $f_{2}$which are specifically used for ranging,
 and the remaining subcarriers are used to transmit data just like
@@ -339,9 +334,9 @@ during parallel-to-serial conversion at the receiver for ranging alone.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=7in]{\string"picture/position frame\string".eps}} 
+\includegraphics[width=3.5in]{picture/subCarriers} 
 \par\end{centering}
-\caption{Ranging Data Frame}
+\caption{OFDM power spectrum diagram}
 \end{figure}
 
 Data such as the coordinates of the base station are transmitted on
@@ -360,6 +355,13 @@ only improve the ranging accuracy but also ensure the accuracy of
 the coordinate data of the ranging base station. Occupying three subcarriers
 at the same time will not cause much impact on the communication capacity
 of the original communication system.
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=7in]{\string"picture/position frame\string".eps}}
+\par\end{centering}
+\caption{Ranging Data Frame}
+\end{figure}
+
 
 \subsection{channel fading}
 
@@ -464,6 +466,36 @@ n(t),respectively.
 
 \subsection{combining observation models}
 
+In the process of positioning and ranging, the delay time of the signal
+actually corresponds to the change of the signal carrier phase. As
+shown in figure 4.6. The phase of the ranging signal when it is emitted
+from the transmitting end is ${\phi_{S}}$, and the phase when it
+is received by the receiver is ${\phi_{E}}$. The phase difference
+of the signals can be expressed as:
+
+\begin{equation}
+\varphi={\phi_{E}}-{\phi_{S}}
+\end{equation}
+
+The distance between receiver and transmitter is expressed as:
+
+\begin{equation}
+\rho=c\tau=\varphi\lambda
+\end{equation}
+where $\rho$ is the distance, $c$ is the speed of light, $\tau$
+is the signal delay, and $\lambda$ is the carrier wavelength. For
+a 5GHz carrier wave, one wavelength is 0.06m, so the ambiguity of
+the receiver observation will lead to ranging errors of more than
+one wavelength. Therefore, multi-subcarrier observation model is used
+to improve the accuracy of receiver observation.
+
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=6in]{\string"picture/carrier ranging\string".eps}}
+\par\end{centering}
+\caption{Carrier ranging process}
+\end{figure}
+
 The frequencies of the ranging subcarriers are determined in advance
 to be${f_{{\rm {0}}}}$, ${f_{1}}$, and ${f_{2}}$. Reach the receiver
 after propagating through the wireless channel. The observation of
@@ -535,11 +567,11 @@ k
 {f_{k}}
 \end{array}}\right]
 \end{equation}
-It can be known from Eq. (13) that the noise amplification factor
+It can be known from Eq. (15) that the noise amplification factor
 in terms of length is the smallest when the combination coefficient
 is proportional to the subcarrier frequency.
 
-Based on Eq.(11), we can obtain the distance from the phase of the
+Based on Eq.(13), we can obtain the distance from the phase of the
 signal. 
 \begin{equation}
 \ensuremath{\rho=\left({{N_{ijk}}+{\varphi_{ijk}}+{\varepsilon_{ijk}}}\right){\lambda_{ijk}}=c{\tau_{0}}}
@@ -554,20 +586,13 @@ combining the phase observations.
 
 \section{positioning algorithm and technology}
 
-\begin{figure}[htbp]
-\begin{centering}
-\textsf{\includegraphics[width=3.5in]{\string"picture/four anchors position\string".eps}} 
-\par\end{centering}
-\caption{Indoor wireless positioning}
-\end{figure}
-
 Positioning accuracy is closely related to the accuracy of ranging
 information\citep{Donglin2019Quasi}. Algorithms that use ranging
 information to calculate the receiver's three-dimensional coordinates
 usually require signals from four transmitters to locate. The receiver
 measures the distance from the four base stations and knows the coordinates
 of the base stations. The coordinates of the receiver are obtained
-through geometric positioning algorithm.Figure 5 illustrates the indoor
+through geometric positioning algorithm.Fig. 6 illustrates the indoor
 positioning method. The receiver measures the distances $R_{1}$,
 $R_{2}$, $R_{3}$, $R_{4}$ and the coordinates of the base stations
 from the four base stations, and obtains the coordinates of the receiver
@@ -575,10 +600,17 @@ through a geometric positioning algorithm. Geometric positioning methods,
 such as the least squares method, are closely related to positioning
 accuracy.
 
+\begin{figure}[htbp]
+\begin{centering}
+\textsf{\includegraphics[width=3.5in]{\string"picture/four anchors position\string".eps}}
+\par\end{centering}
+\caption{Indoor wireless positioning}
+\end{figure}
+
 Since OFDM usually uses antenna arrays, multiple antennas can be used
 for positioning in one transmitter, which can reduce the number of
 transmitters required for positioning compared with common methods,
-as shown in Fig. 6.The positioning algorithm for multiple antennas
+as shown in Fig. 7.The positioning algorithm for multiple antennas
 and multiple base stations is the same, except that the position coordinates
 of the antennas are substituted for the position coordinates of the
 base stations.
@@ -602,7 +634,7 @@ to receive it.
 \item Calculate receiver coordinates using geometric algorithms. mathematical
 model of base station positioning 
 \end{enumerate}
-As shown in the figure 5, the four anchors are deployed in advance
+As shown in the figure 6, the four anchors are deployed in advance
 as base stations, and the position coordinates of the four anchors
 are calibrated and recorded as $A0\left(x_{a0},y_{a0},z_{a0}\right)$,$A1\left(x_{a1},y_{a1},z_{a1}\right)$,$A2\left(x_{a2},y_{a2},z_{a2}\right)$,
 and $A3\left(x_{a3},y_{a3},z_{a3}\right)$, respectively. At a certain
@@ -672,7 +704,7 @@ In this article, we use nonlinear least squares iteration to solve
 this ranging equations.
 
 Assuming that the estimated value of the TAG coordinate is $\hat{\boldsymbol{\beta}}=\left(\hat{x},\hat{y},\hat{z}\right)$,
-the first-order Taylor expansion of the ranging Eq.(15) at $\hat{\boldsymbol{\beta}}$
+the first-order Taylor expansion of the ranging Eq.(17) at $\hat{\boldsymbol{\beta}}$
 is obtained as:
 
 \begin{equation}
@@ -694,8 +726,8 @@ following equation holds:
 \hat{r}=\sqrt{\left(\hat{x}-x_{a}\right)^{2}+\left(\hat{y}-y_{a}\right)^{2}+\left(\hat{z}-z_{a}\right)^{2}}
 \end{equation}
 
-According to Eqs.(15),(16),(17),(18),(19) and the partial differential
-formula, the following equations can be obtained:
+According to Eqs.(17-21) and the partial differential formula, the
+following equations can be obtained:
 
 \begin{equation}
 \frac{\partial R}{\partial x}=\frac{x-\hat{x}}{\hat{r}},\frac{\partial R}{\partial y}=\frac{y-\hat{y}}{\hat{r}},\frac{\partial R}{\partial z}=\frac{z-\hat{z}}{\hat{r}}
@@ -708,7 +740,7 @@ To facilitate matrix operations, let the following equation be:
 \end{equation}
 
 If there are m sets of ranging information, and the second order and
-above errors of Eq.(15) are discarded, the nonlinear ranging equation
+above errors of Eq.(17) are discarded, the nonlinear ranging equation
 can be linearized into the following equations:
 
 \begin{equation}
@@ -729,7 +761,7 @@ can be linearized into the following equations:
 \end{array}\right]
 \end{equation}
 
-Write Eq.(22) as a matrix, as follows:
+Write Eq.(24) as a matrix, as follows:
 
 \begin{equation}
 \mathbf{\triangle\boldsymbol{R}=H\cdot\triangle\hat{\boldsymbol{\beta}}}
@@ -755,14 +787,14 @@ Where,
 \end{array}\right]
 \end{equation}
 
-Finally, the least square solution of Eq.(23) is obtained as follows:
+Finally, the least square solution of Eq.(25) is obtained as follows:
 
 \begin{equation}
 \triangle\hat{\boldsymbol{\beta}}=\left(\mathbf{H}^{T}\cdot\mathbf{H}\right)^{-1}\cdot\mathbf{H}^{T}\cdot\triangle\boldsymbol{R}
 \end{equation}
 
 $\mathbf{H}$ is the observation matrix, which is a Jacobian matrix.
-From the above Eq.(16) to (25), the solution process of the nonlinear
+From the above Eq.(18) to (27), the solution process of the nonlinear
 least squares is given.
 
 The specific solution steps are given below:
@@ -773,14 +805,14 @@ Set to $\hat{\boldsymbol{\beta}}=\left[0,0,0\right]^{T}$ or the estimated
 value at the previous moment, i.e. $\hat{\boldsymbol{\beta}}=\hat{\boldsymbol{\beta}}_{k-1}$.
 
 Step 2: Calculate the prior ranging error $\triangle\boldsymbol{R}$
-by using Eq.(17).
+by using Eq.(19).
 
 Step 3: Calculate the cosine vector $\mathbf{u}$ and the observation
-matrix $\mathbf{H}$ of the ranging direction by using Eqs.(19),(20).
+matrix $\mathbf{H}$ of the ranging direction by using Eqs.(21),(22).
 
-Step 4: Use Eq.(25) to solve the state estimation error vector $\triangle\hat{\boldsymbol{\beta}}$.
+Step 4: Use Eq.(27) to solve the state estimation error vector $\triangle\hat{\boldsymbol{\beta}}$.
 
-Step 5: according to Eq.(18), update the current iteration state:
+Step 5: according to Eq.(20), update the current iteration state:
 $\hat{\boldsymbol{\beta}}=\hat{\boldsymbol{\beta}}+$$\triangle\hat{\boldsymbol{\beta}}$.
 
 Step 6: Judge whether convergence. The convergence condition is: $\left\Vert \triangle\hat{\boldsymbol{\beta}}\right\Vert _{2}\leq Th$,
@@ -838,13 +870,13 @@ mean squared error (MSE) of ${\mathbf{\theta}}$ is bounded as
 \mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ (\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})^{\mathrm{T}}\right\} \succeq\mathbf{F}_{\boldsymbol{\theta}}^{-1}
 \end{equation}
 $\mathbf{F}_{\boldsymbol{\theta}}$ can be calculated as the sum of
-the FIMs for all subcarriers as shown in Eq. (30).
+the FIMs for all subcarriers as shown in Eq. (32).
 
 \begin{equation}
 \mathbf{F}_{\theta}=\sum_{k=0}^{N-1}\left(\mathbf{F}\left(f_{\mathrm{c}}+f_{k}\right)+\mathbf{F}\left(-f_{\mathrm{c}}-f_{k}\right)\right)
 \end{equation}
 the FIM at frequency f $\mathbf{F}(f)$ can be calculated from Eqs.
-(26), (28)
+(28), (30)
 
 \begin{equation}
 \mathbf{F}(f)=\mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ -\frac{\partial^{2}\ln\Lambda(R(f);\boldsymbol{\theta})}{\partial\boldsymbol{\theta}\partial\boldsymbol{\theta}^{\mathrm{T}}}\right\} 
@@ -864,9 +896,9 @@ as follows,
 \mathbb{E}_{\mathcal{R}_{\mathrm{f}}}\left\{ -\frac{\partial^{2}\ln\Lambda(R(f);\boldsymbol{\theta})}{\partial\alpha_{i}\partial\alpha_{j}}\right\} =\frac{T}{N_{0}}P_{k}\cos\left(2\pi f\tau_{ij}\right)
 \end{equation}
 where $\tau_{ij}=\tau_{i}-\tau_{j}$ , $0\leq i,j\leq L-1$ and $P_{k}=A_{k}^{2}$
-is the power of the $k$th subcarrier. As can be seen from Eqs. (32),
-(33) and (34), FIM is independent of the phase of the data. Substitute
-the above formula into Eq. (18), we obtain the expressions of the
+is the power of the $k$th subcarrier. As can be seen from Eqs. (34),
+(35) and (36), FIM is independent of the phase of the data. Substitute
+the above formula into Eq. (20), we obtain the expressions of the
 elements in $\mathbf{F}_{\boldsymbol{\theta}}$. The CRLB for the
 mean-square estimation error of $\tau_{0}$ is $\sigma_{\mathrm{CRB}}^{2}\left(\tau_{0}\right)$.
 The CRB can be written as
@@ -897,7 +929,7 @@ to the overlap between the first path and the subsequent paths in
 the received waveform$^{\cite{Shen2010Fundamental}}$. Since the second
 path is closest to the first path, in the following analysis, we focus
 mainly on the performance analysis for ranging in the two-path channel.
-The approximate EFI for ranging based on Eqs. (36), (37), and (38)
+The approximate EFI for ranging based on Eqs. (38), (39), and (40)
 in the two-path channel is given by
 
 \begin{equation}
@@ -957,7 +989,7 @@ locations on the base station plane to calculate MSE and RMSE.
 \caption{CRLB baseline and MSE under different $\Delta f$}
 \end{figure}
 
-As shown in FIG. 6, the larger the frequency spacing used for positioning,
+As shown in Fig. 8, the larger the frequency spacing used for positioning,
 the smaller the CRLB, and the higher the ranging accuracy. It shows
 that the proposed method has better performance in multipath environment.
 Therefore, the frequency difference of the three subcarriers should
@@ -987,7 +1019,7 @@ the proposed method has better performance in high frequency signals.
 \caption{MSE of different methods when the number of subcarriers changes}
 \end{figure}
 
-As shown in FIG.8, the larger N is, the smaller the CRLB is, that
+As shown in Fig.10, the larger N is, the smaller the CRLB is, that
 is, the more accurate the ranging information is. In accordance with
 the previous section, Fisher information is proportional to the square
 of N. However, a larger N means that the positioning signal needs
@@ -1007,14 +1039,14 @@ is not affected too much.
 \caption{RMSE of different positioning methods}
 \end{figure}
 
-As shown in Figure 9. The RMSEs of ML algorithms of various indoor
-positioning technologies are compared. These technologies are based
-on ranging positioning methods. When using the same ML positioning
-algorithm, ranging accuracy is positively related to positioning.
-Under the condition of high signal-to-noise ratio, the positioning
-accuracy ratio of RFID decreases rapidly. The multi-frequency positioning
-accuracy proposed in this paper is much better than indoor positioning
-methods such as PN, UWB and RFID.
+As shown in Fig.11. The RMSEs of ML algorithms of various indoor positioning
+technologies are compared. These technologies are based on ranging
+positioning methods. When using the same ML positioning algorithm,
+ranging accuracy is positively related to positioning. Under the condition
+of high signal-to-noise ratio, the positioning accuracy ratio of RFID
+decreases rapidly. The multi-frequency positioning accuracy proposed
+in this paper is much better than indoor positioning methods such
+as PN, UWB and RFID.
 
 \begin{table}[h]
 \centering %表格居中
@@ -1042,7 +1074,7 @@ PN  & 2.12017  & 1.16961  & 0.68399  & 0.40138\tabularnewline
 \caption{HDOP of OFDM position system}
 \end{figure}
 
-Figure 10 shows the horizontal dilution of precision (HDOP). Four
+Figure 12 shows the horizontal dilution of precision (HDOP). Four
 base stations are set on the same horizontal plane at a height of
 2m with coordinates of (0,0,2) (0,20,2) (20,0,2) (20,20,2). Where
 coordinates are in meters. The positioning effect in the middle position
