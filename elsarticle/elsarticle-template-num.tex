@@ -341,14 +341,12 @@ during parallel-to-serial conversion at the receiver for ranging alone.
 
 Data such as the coordinates of the base station are transmitted on
 the ranging subcarriers. The data frame format is shown in Figure
-4.
-
-The ranging frame structure is shown in Figure 4. The first two bytes
-of the frame. Check sum One byte, used to check the data. The base
-station's latitude, longitude and altitude are 8 bytes each, for a
-total of 24 bytes. The device id is one byte, which indicates the
-signal transmitted by which base station. The subcarrier id is one
-byte and is used to indicate which subcarrier signal. The ranging
+4.The ranging frame structure is shown in Figure 4. The first two
+bytes of the frame. Check sum One byte, used to check the data. The
+base station's latitude, longitude and altitude are 8 bytes each,
+for a total of 24 bytes. The device id is one byte, which indicates
+the signal transmitted by which base station. The subcarrier id is
+one byte and is used to indicate which subcarrier signal. The ranging
 signal delay is used to measure the distance between the receiver
 and the base station. The three subcarriers used for ranging can not
 only improve the ranging accuracy but also ensure the accuracy of
@@ -357,7 +355,7 @@ at the same time will not cause much impact on the communication capacity
 of the original communication system.
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=7in]{\string"picture/position frame\string".eps}}
+\textsf{\includegraphics[width=5in]{\string"picture/position frame\string".eps}}
 \par\end{centering}
 \caption{Ranging Data Frame}
 \end{figure}
@@ -491,7 +489,7 @@ to improve the accuracy of receiver observation.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=6in]{\string"picture/carrier ranging\string".eps}}
+\textsf{\includegraphics[width=5in]{\string"picture/carrier ranging\string".eps}}
 \par\end{centering}
 \caption{Carrier ranging process}
 \end{figure}
@@ -505,15 +503,15 @@ as:
 \begin{equation}
 {\varphi_{i}}=\frac{1}{{\lambda_{i}}}\rho-{N_{i}}+{\varepsilon_{i}}
 \end{equation}
-In Eq. (7), $i={\rm {1}},{\rm {2}},{\rm {3}}$ represents different
+In Eq. (9), $i={\rm {1}},{\rm {2}},{\rm {3}}$ represents different
 carrier frequencies,${\varphi_{i}}$ represents the carrier phase
 observation value, $\rho$ represents the true value of the geometric
 distance from the base station transmitter to the receiver, and ${{\cal E}_{i}}$
 is the carrier phase noise of the corresponding frequency. ${N_{i}}$
 is the ambiguity of the observed value. The observation values of
 the OFDM subcarrier phases of different frequencies represented by
-Eq. (1) are linearly combined, and the observation values of the combined
-subcarrier phases are expressed as:
+Eq. (10) are linearly combined, and the observation values of the
+combined subcarrier phases are expressed as:
 
 \begin{equation}
 \begin{aligned}\varphi_{ijk}=i\varphi_{1}+j\varphi_{2}+k\varphi_{3} & =\left(\frac{i}{\lambda_{1}}+\frac{j}{\lambda_{2}}+\frac{k}{\lambda_{3}}\right)\rho\\
@@ -521,7 +519,7 @@ subcarrier phases are expressed as:
  & +\left(i\varepsilon_{1}+j\varepsilon_{2}+k\varepsilon_{3}\right)
 \end{aligned}
 \end{equation}
-In Eq. (8), ${\varphi_{ijk}}$ is the carrier phase combined observation
+In Eq. (10), ${\varphi_{ijk}}$ is the carrier phase combined observation
 value, and $(i,j,k)$ is the combined observation value coefficient.
 In order to ensure the whole cycle characteristic of the combined
 ambiguity of the combined observation value,which can be writtened
@@ -530,12 +528,12 @@ integers, and
 \begin{equation}
 \frac{1}{{\lambda_{ijk}}}=\frac{i}{{\lambda_{1}}}+\frac{j}{{\lambda_{2}}}+\frac{k}{{\lambda_{3}}}
 \end{equation}
-the wavelength F of the combined phase combination observations is
-solved as: 
+the wavelength of the combined phase combination observations is solved
+as: 
 \begin{equation}
 {\lambda_{ijk}}=\frac{{{\lambda_{1}}{\lambda_{2}}{\lambda_{3}}}}{{i{\lambda_{2}}{\lambda_{3}}+j{\lambda_{1}}{\lambda_{3}}+k{\lambda_{1}}{\lambda_{2}}}}
 \end{equation}
-then Eq. (8) can be simplified as:
+then Eq. (10) can be simplified as:
 
 \begin{equation}
 {\varphi_{ijk}}=\frac{1}{{\lambda_{ijk}}}\rho-{N_{ijk}}+{\varepsilon_{ijk}}
@@ -740,7 +738,7 @@ To facilitate matrix operations, let the following equation be:
 \end{equation}
 
 If there are m sets of ranging information, and the second order and
-above errors of Eq.(17) are discarded, the nonlinear ranging equation
+above errors of Eq.(19) are discarded, the nonlinear ranging equation
 can be linearized into the following equations:
 
 \begin{equation}
@@ -794,8 +792,8 @@ Finally, the least square solution of Eq.(25) is obtained as follows:
 \end{equation}
 
 $\mathbf{H}$ is the observation matrix, which is a Jacobian matrix.
-From the above Eq.(18) to (27), the solution process of the nonlinear
-least squares is given.
+From the above Eq.(18-27), the solution process of the nonlinear least
+squares is given.
 
 The specific solution steps are given below:
 
@@ -810,9 +808,9 @@ by using Eq.(19).
 Step 3: Calculate the cosine vector $\mathbf{u}$ and the observation
 matrix $\mathbf{H}$ of the ranging direction by using Eqs.(21),(22).
 
-Step 4: Use Eq.(27) to solve the state estimation error vector $\triangle\hat{\boldsymbol{\beta}}$.
+Step 4: Use Eq.(26) to solve the state estimation error vector $\triangle\hat{\boldsymbol{\beta}}$.
 
-Step 5: according to Eq.(20), update the current iteration state:
+Step 5: according to Eq.(27), update the current iteration state:
 $\hat{\boldsymbol{\beta}}=\hat{\boldsymbol{\beta}}+$$\triangle\hat{\boldsymbol{\beta}}$.
 
 Step 6: Judge whether convergence. The convergence condition is: $\left\Vert \triangle\hat{\boldsymbol{\beta}}\right\Vert _{2}\leq Th$,
@@ -898,7 +896,7 @@ as follows,
 where $\tau_{ij}=\tau_{i}-\tau_{j}$ , $0\leq i,j\leq L-1$ and $P_{k}=A_{k}^{2}$
 is the power of the $k$th subcarrier. As can be seen from Eqs. (34),
 (35) and (36), FIM is independent of the phase of the data. Substitute
-the above formula into Eq. (20), we obtain the expressions of the
+the above formula into Eq. (33), we obtain the expressions of the
 elements in $\mathbf{F}_{\boldsymbol{\theta}}$. The CRLB for the
 mean-square estimation error of $\tau_{0}$ is $\sigma_{\mathrm{CRB}}^{2}\left(\tau_{0}\right)$.
 The CRB can be written as
@@ -968,7 +966,7 @@ EFI can be expressed as a function of M and $\Delta f$ as follows
 where ${\omega_{\text{c}}}=2\pi{f_{\text{c}}}$, ${\omega_{k}}=2\pi{f_{k}}$
 and $\Delta\omega=2\pi\Delta f$. Thus,the EFI for ranging can be
 increased by using larger subcarrier spacing.According to the definition
-of CRLB, as shown in Eq. (43), this shows that the larger the subcarrier
+of CRLB, as shown in Eq. (45), this shows that the larger the subcarrier
 spacing is, the smaller the CRLB will be.
 
 \section{Simulation results}
@@ -984,7 +982,7 @@ locations on the base station plane to calculate MSE and RMSE.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{CRB_F_DELTA}} 
+\textsf{\includegraphics[width=3.5in]{picture/CRB_F_DELTA}} 
 \par\end{centering}
 \caption{CRLB baseline and MSE under different $\Delta f$}
 \end{figure}
@@ -1000,7 +998,7 @@ algorithm are slightly worse than CRLB, but remain basically the same.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{CRB_FC}} 
+\textsf{\includegraphics[width=3.5in]{picture/CRB_FC}} 
 \par\end{centering}
 \caption{CRLB baseline and MSE under different ${f_{c}}$}
 \end{figure}
@@ -1014,7 +1012,7 @@ the proposed method has better performance in high frequency signals.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{CRB_n}} 
+\textsf{\includegraphics[width=3.5in]{picture/CRB_n}} 
 \par\end{centering}
 \caption{MSE of different methods when the number of subcarriers changes}
 \end{figure}
@@ -1034,7 +1032,7 @@ is not affected too much.
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{CRB_snr}} 
+\textsf{\includegraphics[width=3.5in]{picture/CRB_snr}} 
 \par\end{centering}
 \caption{RMSE of different positioning methods}
 \end{figure}
@@ -1069,7 +1067,7 @@ PN  & 2.12017  & 1.16961  & 0.68399  & 0.40138\tabularnewline
 
 \begin{figure}[htbp]
 \begin{centering}
-\textsf{\includegraphics[width=3.5in]{HDOP}} 
+\textsf{\includegraphics[width=3.5in]{picture/HDOP}} 
 \par\end{centering}
 \caption{HDOP of OFDM position system}
 \end{figure}
