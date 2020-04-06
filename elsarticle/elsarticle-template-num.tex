@@ -282,7 +282,7 @@ wireless metropolitan area network IEEE 802.16 standard, etc. all
 adopt OFDM as the core technology. OFDM is a frequency division multiplexing
 technique based on multi-carrier modulation. Multiple subcarriers
 overlap each other orthogonally in frequency to form multiple subchannels,
-as shown in FIG. 1. Through serial-to-parallel conversion, the input
+as shown in Fig. 1. Through serial-to-parallel conversion, the input
 high-rate data information stream is converted into multiple low-rate
 data information streams that are transmitted in parallel, while the
 broadband is converted into multiple identical narrowbands, and the
@@ -315,7 +315,7 @@ the actual transmitted signal of the OFDM.
 \caption{Receiver OFDM demodulation process}
 \end{figure}
 
-As shown in FIG. 2, at the receiving end, the received signal enters
+As shown in Fig. 2, at the receiving end, the received signal enters
 N parallel branches at the same time, and can be restored by multiplying
 and integrating (coherent demodulation) with N subcarriers, respectively.
 Parallel data is merged into serial data through Parallel-to-Serial
@@ -371,20 +371,21 @@ ranging and positioning. Under normal communication conditions, the
 sub-signal bandwidth of orthogonal frequency division multiplexing
 system is smaller than the relevant bandwidth of the channel, therefore,
 the fading of each sub-channel can be regarded as consistent with
-flat fading, so it has good multipath resistance. When an OFDM signal
-passes through a wireless multi-path channel, frequency selective
-fading causes several groups of subcarriers in the OFDM symbol to
-have larger fading. The large fading in the frequency response of
-this channel will distort the information carried on adjacent subcarriers.
-Therefore, maximizing the frequency difference when selecting subcarriers
-for positioning can resist frequency selective fading. In frequency
-selective fading, the coherence bandwidth of the channel is smaller
-than the bandwidth of the signal. Therefore, different frequency components
-of the signal experience uncorrelated fading. At this time, the use
-of multiple subcarriers can improve the stability of observation.
-When one subcarrier signal produces large fading, other subcarriers
-are less affected. Combined observation can ensure the accuracy of
-observation results.
+flat fading, so it has good multipath resistance. 
+
+When an OFDM signal passes through a wireless multi-path channel,
+frequency selective fading causes several groups of subcarriers in
+the OFDM symbol to have larger fading. The large fading in the frequency
+response of this channel will distort the information carried on adjacent
+subcarriers. Therefore, maximizing the frequency difference when selecting
+subcarriers for positioning can resist frequency selective fading.
+In frequency selective fading, the coherence bandwidth of the channel
+is smaller than the bandwidth of the signal. Therefore, different
+frequency components of the signal experience uncorrelated fading.
+At this time, the use of multiple subcarriers can improve the stability
+of observation. When one subcarrier signal produces large fading,
+other subcarriers are less affected. Combined observation can ensure
+the accuracy of observation results.
 
 \section{Triple-frequency combining observation models}
 
@@ -466,7 +467,7 @@ n(t),respectively.
 
 In the process of positioning and ranging, the delay time of the signal
 actually corresponds to the change of the signal carrier phase. As
-shown in figure 4.6. The phase of the ranging signal when it is emitted
+shown in Fig 5. The phase of the ranging signal when it is emitted
 from the transmitting end is ${\phi_{S}}$, and the phase when it
 is received by the receiver is ${\phi_{E}}$. The phase difference
 of the signals can be expressed as:
@@ -585,7 +586,7 @@ combining the phase observations.
 \section{positioning algorithm and technology}
 
 Positioning accuracy is closely related to the accuracy of ranging
-information\citep{Donglin2019Quasi}. Algorithms that use ranging
+information$^{\cite{Donglin2019Quasi}}$. Algorithms that use ranging
 information to calculate the receiver's three-dimensional coordinates
 usually require signals from four transmitters to locate. The receiver
 measures the distance from the four base stations and knows the coordinates
@@ -632,9 +633,9 @@ to receive it.
 \item Calculate receiver coordinates using geometric algorithms. mathematical
 model of base station positioning 
 \end{enumerate}
-As shown in the figure 6, the four anchors are deployed in advance
-as base stations, and the position coordinates of the four anchors
-are calibrated and recorded as $A0\left(x_{a0},y_{a0},z_{a0}\right)$,$A1\left(x_{a1},y_{a1},z_{a1}\right)$,$A2\left(x_{a2},y_{a2},z_{a2}\right)$,
+As shown in the Fig 6, the four anchors are deployed in advance as
+base stations, and the position coordinates of the four anchors are
+calibrated and recorded as $A0\left(x_{a0},y_{a0},z_{a0}\right)$,$A1\left(x_{a1},y_{a1},z_{a1}\right)$,$A2\left(x_{a2},y_{a2},z_{a2}\right)$,
 and $A3\left(x_{a3},y_{a3},z_{a3}\right)$, respectively. At a certain
 time k, the distances between the receiver and the four antennas are
 $R_{1},R_{2},R_{3},R_{4}$, respectively.
@@ -1072,15 +1073,15 @@ PN  & 2.12017  & 1.16961  & 0.68399  & 0.40138\tabularnewline
 \caption{HDOP of OFDM position system}
 \end{figure}
 
-Figure 12 shows the horizontal dilution of precision (HDOP). Four
-base stations are set on the same horizontal plane at a height of
-2m with coordinates of (0,0,2) (0,20,2) (20,0,2) (20,20,2). Where
-coordinates are in meters. The positioning effect in the middle position
-is worse than that in the peripheral position.Since the receiver has
-similar angles to the four base stations at the center point, HDOP
-is large and the calculation error is large. Therefore, although OFDM
-can use multiple antennas of one base station to locate, its accuracy
-is not as good as that of four base stations
+Fig.12 shows the horizontal dilution of precision (HDOP). Four base
+stations are set on the same horizontal plane at a height of 2m with
+coordinates of (0,0,2) (0,20,2) (20,0,2) (20,20,2). Where coordinates
+are in meters. The positioning effect in the middle position is worse
+than that in the peripheral position.Since the receiver has similar
+angles to the four base stations at the center point, HDOP is large
+and the calculation error is large. Therefore, although OFDM can use
+multiple antennas of one base station to locate, its accuracy is not
+as good as that of four base stations
 
 \section{Conclusions}
 
